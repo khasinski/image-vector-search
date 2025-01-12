@@ -1,0 +1,3 @@
+[submodule "sample-images"]
+	path = sample-images
+	url = git@github.com:yavuzceliker/sample-images.git
