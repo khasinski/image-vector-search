@@ -1,0 +1,23 @@
+<h1 class="mb-4">Upload a new photo</h1>
+
+<%= form_with model: @photo, local: true, class: "form" do |form| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+      <ul>
+        <% @photo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :file, class: "form-label" %>
+    <%= form.file_field :file, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Upload", class: "btn btn-primary" %>
+  </div>
+<% end %>
