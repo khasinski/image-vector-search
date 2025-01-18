@@ -1,3 +1,6 @@
 [submodule "sample-images"]
 	path = sample-images
 	url = git@github.com:yavuzceliker/sample-images.git
+[submodule "model"]
+	path = model
+	url = https://huggingface.co/khasinski/clip-ViT-B-32-onnx
