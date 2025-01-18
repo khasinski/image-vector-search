@@ -1,9 +1,16 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+if Photo.count == 0
+  puts "Creating photos..."
+
+  Dir.glob('sample-images/images/image-*.jpg').each do |image_path|
+    File.open(image_path) do |file|
+      photo = Photo.new
+      photo.file.attach(io: file, filename: File.basename(image_path))
+      photo.save!
+    end
+  end
+else
+  puts "Photos already exist."
+  exit
+end
+
+
