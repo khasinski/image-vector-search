@@ -17,11 +17,20 @@ class PhotosController < ApplicationController
   end
 
   def index
-    if params[:search].present?
-      @photos = Photo.by_description(params[:search]).limit(10)
+    if params[:text_search].present?
+      @photos = Photo.by_description(params[:text_search])
     else
-      @photos = Photo.all.limit(10)
+      @photos = Photo.all
     end
+  end
+
+  def image_search
+    if params[:image_search].present?
+      @photos = Photo.by_image(params[:image_search])
+    else
+      @photos = Photo.all
+    end
+    render :index
   end
 
 

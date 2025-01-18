@@ -1,8 +1,25 @@
 <h1 class="mb-4">Photo</h1>
 
 <p>
-  <strong>File:</strong>
   <%= image_tag @photo.file, style: "max-width: 500px; height: auto;", class: "img-fluid" %>
 </p>
+
+<h2>Similar photos</h2>
+<div class="row">
+  <% @photo.similar.limit(9).select{ |photo| photo.file.present? }.each do |photo| %>
+    <div class="col-md-4 mb-4">
+      <%= link_to photo_path(photo) do %>
+        <div class="card">
+          <%= image_tag photo.file, class: "card-img-top img-fluid", style: "max-width: 100%; height: auto;" %>
+          <div class="card-body">
+            <% if photo.try(:neighbor_distance) %>
+              Distance: <small class="text-muted"><%= photo.neighbor_distance.round(2) %></small>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to 'Back', photos_path, class: "btn btn-secondary" %>

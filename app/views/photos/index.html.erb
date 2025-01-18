@@ -1,23 +1,41 @@
 <h1 class="mb-4">Photos</h1>
 
-<%= form_with url: photos_path, method: :get, local: true, class: "mb-4", id: "search-form" do %>
-  <div class="input-group">
-    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search by description" %>
-    <div class="input-group-append">
-      <button type="button" class="btn btn-primary" onclick="submitSearchForm()">Search</button>
-    </div>
-  </div>
-<% end %>
-
 <div class="row">
-  <% @photos.select{ |photo| photo.file.present? }.each do |photo| %>
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <%= image_tag photo.file, class: "card-img-top img-fluid", style: "max-width: 100%; height: auto;" %>
-        <div class="card-body">
-          <%= link_to 'View', photo_path(photo), class: "btn btn-primary" %>
+  <div class="col-md-6">
+    <%= form_with url: photos_path, method: :get, local: true, class: "mb-4", id: "text-search-form" do %>
+      <div class="input-group">
+        <%= text_field_tag :text_search, params[:text_search], class: "form-control", placeholder: "A white cat with yellow eyes" %>
+        <div class="input-group-append">
+          <button type="button" class="btn btn-primary" onclick="submitTextSearchForm()">Search by query</button>
         </div>
       </div>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <%= form_with url: image_search_photos_path, method: :post, class: "mb-4", id: "image-search-form", html: { multipart: true }, data: { turbo: false } do %>
+      <div class="input-group">
+        <%= file_field_tag :image_search, class: "form-control" %>
+        <div class="input-group-append">
+          <input type="submit" class="btn btn-primary" value="Search by image">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <% @photos.limit(9).select{ |photo| photo.file.present? }.each do |photo| %>
+    <div class="col-md-4 mb-4">
+      <%= link_to photo_path(photo) do %>
+        <div class="card">
+          <%= image_tag photo.file, class: "card-img-top img-fluid", style: "max-width: 100%; height: auto;" %>
+          <div class="card-body">
+            <% if photo.try(:neighbor_distance) %>
+            Distance: <small class="text-muted"><%= photo.neighbor_distance.round(2) %></small>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
@@ -25,12 +43,12 @@
 <%= link_to 'Upload New Photo', new_photo_path, class: "btn btn-secondary" %>
 
 <script>
-    function submitSearchForm() {
-        const form = document.getElementById('search-form');
-        const searchInput = form.querySelector('input[name="search"]');
+    function submitTextSearchForm() {
+        const form = document.getElementById('text-search-form');
+        const searchInput = form.querySelector('input[name="text_search"]');
         const searchValue = searchInput.value;
         const url = new URL(form.action);
-        url.searchParams.set('search', searchValue);
+        url.searchParams.set('text_search', searchValue);
         window.location.href = url.toString();
     }
 </script>

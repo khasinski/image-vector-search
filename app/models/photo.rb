@@ -13,6 +13,11 @@ class Photo < ApplicationRecord
     Photo.nearest_neighbors(:embedding, text_embedding, distance: :cosine)
   end
 
+  def self.by_image(image)
+    image_embedding = $clip.encode_image(image.path)
+    Photo.nearest_neighbors(:embedding, image_embedding, distance: :cosine)
+  end
+
   def file_path
     ActiveStorage::Blob.service.send(:path_for, file.key)
   end

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= content_for(:title) || "Rails Clip" %></title>
+  <title><%= content_for(:title) || "Image Vector Search" %></title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
@@ -27,20 +27,17 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Rails Clip</a>
+    <a class="navbar-brand">Image Vector Search</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="<%= root_path %>">Home</a>
+          <a class="nav-link" href="<%= root_path %>">Photos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= new_photo_path %>">Upload Photo</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<%= photos_path %>">Photos</a>
+          <a class="nav-link" href="<%= new_photo_path %>">Upload</a>
         </li>
       </ul>
     </div>
