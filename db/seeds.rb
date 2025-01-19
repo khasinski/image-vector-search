@@ -12,5 +12,3 @@ else
   puts "Photos already exist."
   exit
 end
-
-

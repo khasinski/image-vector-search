@@ -1,17 +1,19 @@
-require 'zlib'
-require 'set'
+require "zlib"
+require "set"
 
 module CLIP
   class Tokenizer
+    INPUT_VECTOR_SIZE = 77
+
     def initialize(bpe_path = "model/bpe_simple_vocab_16e6.txt.gz")
       @byte_encoder = bytes_to_unicode
       @byte_decoder = @byte_encoder.invert
       merges = Zlib::GzipReader.open(bpe_path).read.split("\n")[1..(49152 - 256 - 2)]
-      merges = merges.map { |merge| merge.split(' ') }
+      merges = merges.map { |merge| merge.split(" ") }
       vocab = @byte_encoder.values
       vocab += vocab.map { |v| "#{v}</w>" }
       merges.each { |merge| vocab << merge.join }
-      vocab += ["<|startoftext|>", "<|endoftext|>"]
+      vocab += [ "<|startoftext|>", "<|endoftext|>" ]
       @encoder = Hash[vocab.zip(0...vocab.size)]
       @decoder = @encoder.invert
       @bpe_ranks = Hash[merges.zip(0...merges.size)]
@@ -45,7 +47,7 @@ module CLIP
       pairs = Set.new
       prev_char = word[0]
       word[1..-1].each do |char|
-        pairs.add([prev_char, char])
+        pairs.add([ prev_char, char ])
         prev_char = char
       end
       pairs
@@ -56,13 +58,13 @@ module CLIP
     end
 
     def whitespace_clean(text)
-      text.gsub(/\s+/, ' ').strip
+      text.gsub(/\s+/, " ").strip
     end
 
     def bpe(token)
       return @cache[token] if @cache.key?(token)
 
-      word = token.chars[0..-2] + ["#{token[-1]}</w>"]
+      word = token.chars[0..-2] + [ "#{token[-1]}</w>" ]
       pairs = get_pairs(word)
 
       until pairs.empty?
@@ -97,7 +99,7 @@ module CLIP
         pairs = get_pairs(word)
       end
 
-      result = word.join(' ')
+      result = word.join(" ")
       @cache[token] = result
       result
     end
@@ -114,7 +116,7 @@ module CLIP
         end
         encoded = mapped_chars.join
 
-        bpe_subtokens = bpe(encoded).split(' ')
+        bpe_subtokens = bpe(encoded).split(" ")
 
         bpe_subtokens.each do |subtok|
           bpe_tokens << @encoder[subtok]
@@ -125,17 +127,17 @@ module CLIP
 
     def decode(tokens)
       text = tokens.map { |token| @decoder[token] }.join
-      text = text.gsub('</w>', ' ')
+      text = text.gsub("</w>", " ")
 
       decoded_bytes = text.each_char.map do |c|
         @byte_decoder[c]
       end
 
-      decoded_bytes.compact.pack('C*').force_encoding('utf-8')
+      decoded_bytes.compact.pack("C*").force_encoding("utf-8")
     end
 
     def pad_array(array)
-      array.fill(0, array.length...77).first(77)
+      array.fill(0, array.length...INPUT_VECTOR_SIZE).first(INPUT_VECTOR_SIZE)
     end
   end
 end

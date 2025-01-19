@@ -28,8 +28,30 @@ RSpec.describe CLIP::Tokenizer do
   end
 
   describe '#encode' do
-    it 'returns a list of token ids' do
-      expect(tokenizer.encode("hello")).to be_an(Array)
+    let(:input_vector_size) { CLIP::Tokenizer::INPUT_VECTOR_SIZE }
+    let(:padding) { Array.new(input_vector_size - tokenized.size, 0) }
+
+
+    context 'when the input text is "hello"' do
+      let(:tokenized) do
+        # begin token, hello, end token
+        [ 49406, 3306, 49407 ]
+      end
+
+      it 'returns a list of token ids', aggregate_failures: true do
+        expect(tokenizer.encode("hello")).to eq(tokenized + padding)
+      end
+    end
+
+    context 'when the input text is "你好"' do
+      let(:tokenized) do
+        # start token, 你好, end token
+        [ 49406, 47466, 254, 29290, 377, 49407 ]
+      end
+
+      it 'correctly encodes non-ASCII characters' do
+        expect(tokenizer.encode("你好")).to eq(tokenized + padding)
+      end
     end
   end
 end

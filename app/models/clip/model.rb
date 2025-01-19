@@ -15,11 +15,11 @@ class CLIP::Model
 
   def encode_text(text)
     tokens = tokenizer.encode(text)
-    text_model.predict({ input: [tokens] })["output"].first
+    text_model.predict({ input: [ tokens ] })["output"].first
   end
 
   def encode_image(image)
     image = image_preprocessor.preprocess(image).to_a
-    image_model.predict({ input: [image] })["output"].first
+    image_model.predict({ input: [ image ] })["output"].first
   end
 end
