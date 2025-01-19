@@ -58,7 +58,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        submodules: recursive
+        with:
+          submodules: recursive
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
