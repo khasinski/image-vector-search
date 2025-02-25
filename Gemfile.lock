@@ -86,6 +86,14 @@ GEM
       racc
     builder (3.3.0)
     byebug (11.1.3)
+    clip-rb (1.1.0)
+      logger (~> 1.6)
+      mini_magick
+      net-http (~> 0.6.0)
+      numo-narray (~> 0.9.2)
+      onnxruntime (~> 0.9.3)
+      tokenizers
+      zlib (~> 3.2)
     concurrent-ruby (1.3.4)
     connection_pool (2.5.0)
     crass (1.0.6)
@@ -146,12 +154,16 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.4)
-    mini_magick (4.13.2)
+    mini_magick (5.1.2)
+      benchmark
+      logger
     mini_mime (1.1.5)
     minitest (5.25.4)
     msgpack (1.7.5)
     neighbor (0.5.2)
       activerecord (>= 7)
+    net-http (0.6.0)
+      uri
     net-imap (0.5.5)
       date
       net-protocol
@@ -324,6 +336,9 @@ GEM
     thruster (0.1.10-x86_64-darwin)
     thruster (0.1.10-x86_64-linux)
     timeout (0.4.3)
+    tokenizers (0.5.4-arm64-darwin)
+    tokenizers (0.5.4-x86_64-darwin)
+    tokenizers (0.5.4-x86_64-linux)
     turbo-rails (2.0.11)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -344,6 +359,7 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     zeitwerk (2.7.1)
+    zlib (3.2.1)
 
 PLATFORMS
   arm64-darwin
@@ -354,6 +370,7 @@ DEPENDENCIES
   bootsnap
   brakeman
   byebug
+  clip-rb
   factory_bot_rails
   importmap-rails
   jbuilder

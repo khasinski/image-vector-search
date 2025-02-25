@@ -34,3 +34,5 @@
 /config/master.key
 
 .byebug_history
+
+.clip_models
