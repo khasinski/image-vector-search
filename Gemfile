@@ -8,6 +8,7 @@ gem "propshaft"
 gem "sqlite3"
 gem "sqlite-vec"
 gem "neighbor"
+gem "tokenizers"
 
 # Model runner
 gem "onnxruntime"
