@@ -102,6 +102,9 @@ GEM
     factory_bot_rails (6.4.4)
       factory_bot (~> 6.5)
       railties (>= 5.0.0)
+    ffi (1.17.1-arm64-darwin)
+    ffi (1.17.1-x86_64-darwin)
+    ffi (1.17.1-x86_64-linux-gnu)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -171,6 +174,12 @@ GEM
     nokogiri (1.18.1-x86_64-linux-gnu)
       racc (~> 1.4)
     numo-narray (0.9.2.1)
+    onnxruntime (0.9.3-arm64-darwin)
+      ffi
+    onnxruntime (0.9.3-x86_64-darwin)
+      ffi
+    onnxruntime (0.9.3-x86_64-linux)
+      ffi
     ostruct (0.6.1)
     parallel (1.26.3)
     parser (3.3.6.0)
@@ -351,6 +360,7 @@ DEPENDENCIES
   kamal
   mini_magick
   numo-narray
+  onnxruntime
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.1)
