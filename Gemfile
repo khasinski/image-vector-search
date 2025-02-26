@@ -7,6 +7,7 @@ gem "propshaft"
 # Use pg as the database for Active Record
 gem "sqlite3"
 gem "sqlite-vec"
+gem "neighbor"
 
 # Model runner
 gem "onnxruntime"
