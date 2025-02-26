@@ -9,6 +9,7 @@ gem "sqlite3"
 gem "sqlite-vec"
 
 # Model runner
+gem "onnxruntime"
 gem "numo-narray"
 gem "mini_magick"
 
