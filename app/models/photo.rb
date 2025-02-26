@@ -1,18 +1,21 @@
 class Photo < ApplicationRecord
   has_one_attached :file
+  has_neighbors :embedding, dimensions: 512
 
   after_commit :embed
 
   def similar
-    Photo.all
+    nearest_neighbors(:embedding, distance: :cosine)
   end
 
   def self.by_description(description)
-    Photo.all
+    embedding = $text_embedding.call(description)
+    Photo.nearest_neighbors(:embedding, embedding, distance: :cosine)
   end
 
   def self.by_image(image)
-    Photo.all
+    embedding = $image_embedding.call(image.path)
+    Photo.nearest_neighbors(:embedding, embedding, distance: :cosine)
   end
 
   def file_path
