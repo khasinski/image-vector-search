@@ -343,6 +343,10 @@ GEM
     thruster (0.1.13-x86_64-darwin)
     thruster (0.1.13-x86_64-linux)
     timeout (0.4.3)
+    tokenizers (0.5.5-arm64-darwin)
+    tokenizers (0.5.5-x86_64-darwin)
+    tokenizers (0.5.5-x86_64-linux)
+    tokenizers (0.5.5-x86_64-linux-musl)
     tsort (0.2.0)
     turbo-rails (2.0.16)
       actionpack (>= 7.1.0)
@@ -396,6 +400,7 @@ DEPENDENCIES
   sqlite3
   stimulus-rails
   thruster
+  tokenizers
   turbo-rails
   tzinfo-data
   web-console
