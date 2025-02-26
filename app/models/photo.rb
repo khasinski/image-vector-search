@@ -1,6 +1,8 @@
 class Photo < ApplicationRecord
   has_one_attached :file
 
+  after_commit :embed
+
   def similar
     Photo.all
   end
@@ -15,5 +17,9 @@ class Photo < ApplicationRecord
 
   def file_path
     ActiveStorage::Blob.service.send(:path_for, file.key)
+  end
+
+  def embed
+    EmbedPhotoJob.perform_later(self)
   end
 end
