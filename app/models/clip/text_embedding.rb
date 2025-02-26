@@ -1,15 +1,16 @@
 class CLIP::TextEmbedding
   def initialize(
-    tokenizer: CLIP::Tokenizer.new,
-    model_path: Rails.root.join("model/textual.onnx")
+    tokenizer: Tokenizers.from_pretrained("M-CLIP/XLM-Roberta-Large-Vit-B-32"),
+    model_path: "./multilingual_model/textual.onnx"
   )
     @tokenizer = tokenizer
     @model = OnnxRuntime::Model.new(model_path)
   end
 
   def call(text)
-    tensor = tokenizer.encode(text).to_a
-    model.predict({ input: [tensor] })["output"].first
+    tensor = tokenizer.encode(text).ids
+    attention_mask = Array.new(tensor.size, 1)
+    model.predict({ input_ids: [tensor], attention_mask: [attention_mask] })["output"].first
   end
 
   private
