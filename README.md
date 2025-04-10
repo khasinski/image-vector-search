@@ -2,6 +2,7 @@
 
 # Requirements
 - ruby 3.3.6
+- imagemagick
 - [git-lfs](https://git-lfs.com/)
 
 # Installation
