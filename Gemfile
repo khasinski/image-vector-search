@@ -7,8 +7,11 @@ gem "propshaft"
 # Use pg as the database for Active Record
 gem "sqlite3"
 gem "sqlite-vec"
+gem "neighbor"
+gem "tokenizers"
 
 # Model runner
+gem "onnxruntime"
 gem "numo-narray"
 gem "mini_magick"
 
