@@ -306,9 +306,9 @@ GEM
     sqlite-vec (0.1.6-arm64-darwin)
     sqlite-vec (0.1.6-x86_64-darwin)
     sqlite-vec (0.1.6-x86_64-linux)
-    sqlite3 (2.6.0-arm64-darwin)
-    sqlite3 (2.6.0-x86_64-darwin)
-    sqlite3 (2.6.0-x86_64-linux-gnu)
+    sqlite3 (2.7.2-arm64-darwin)
+    sqlite3 (2.7.2-x86_64-darwin)
+    sqlite3 (2.7.2-x86_64-linux-gnu)
     sshkit (1.24.0)
       base64
       logger
