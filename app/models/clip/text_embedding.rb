@@ -1,10 +1,13 @@
 class CLIP::TextEmbedding
+  MODEL_DIR = Rails.root.join("multilingual_model")
+
   def initialize(
-    tokenizer: Tokenizers.from_pretrained("M-CLIP/XLM-Roberta-Large-Vit-B-32"),
-    model_path: "./multilingual_model/textual.onnx"
+    tokenizer: Tokenizers.from_file(Rails.root.join("config/tokenizers/xlm-roberta-large.json")),
+    model_path: MODEL_DIR.join("textual.onnx")
   )
     @tokenizer = tokenizer
-    @model = OnnxRuntime::Model.new(model_path)
+    # ONNX model with external data requires loading from the model's directory
+    @model = Dir.chdir(MODEL_DIR) { OnnxRuntime::Model.new(model_path) }
   end
 
   def call(text)
