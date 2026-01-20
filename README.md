@@ -1,6 +1,6 @@
 # Image Vector Search
 
-> **Note:** This training material is now outdated. Newer, more capable models like CLIP-ViT-L-14, OpenCLIP, and SigLIP are available. The solution is already implemented in this codebase.
+> **Note:** This training material is now outdated. Newer, more capable models like CLIP-ViT-L-14, OpenCLIP, and SigLIP2 are available. The solution is already implemented in this codebase.
 
 A Rails application demonstrating image similarity search using CLIP embeddings and vector databases.
 
