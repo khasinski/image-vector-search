@@ -9,7 +9,7 @@ class CLIP::ImageEmbedding
 
   def call(image_path)
     tensor = image_preprocessor.preprocess(image_path).to_a
-    model.predict({ input: [tensor] })["output"].first
+    model.predict({ input: [ tensor ] })["output"].first
   end
 
   private

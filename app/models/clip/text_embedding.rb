@@ -13,7 +13,7 @@ class CLIP::TextEmbedding
   def call(text)
     tensor = tokenizer.encode(text).ids
     attention_mask = Array.new(tensor.size, 1)
-    model.predict({ input_ids: [tensor], attention_mask: [attention_mask] })["output"].first
+    model.predict({ input_ids: [ tensor ], attention_mask: [ attention_mask ] })["output"].first
   end
 
   private
