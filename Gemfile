@@ -16,7 +16,7 @@ gem "numo-narray", "~> 0.9.2"
 gem "mini_magick", "~> 5.3.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 6.6.0"
+gem "puma", "~> 7.2.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails", "~> 2.2.3"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
