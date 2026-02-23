@@ -60,5 +60,5 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console", "~> 4.2.1"
+  gem "web-console", "~> 4.3.0"
 end
