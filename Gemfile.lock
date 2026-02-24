@@ -97,7 +97,7 @@ GEM
     dotenv (3.2.0)
     drb (2.2.3)
     ed25519 (1.4.0)
-    erb (6.0.1)
+    erb (6.0.2)
     erubi (1.13.1)
     et-orbi (1.4.0)
       tzinfo
@@ -360,11 +360,10 @@ GEM
     unicode-emoji (4.2.0)
     uri (1.1.1)
     useragent (0.16.11)
-    web-console (4.2.1)
-      actionview (>= 6.0.0)
-      activemodel (>= 6.0.0)
+    web-console (4.3.0)
+      actionview (>= 8.0.0)
       bindex (>= 0.4.0)
-      railties (>= 6.0.0)
+      railties (>= 8.0.0)
     websocket-driver (0.8.0)
       base64
       websocket-extensions (>= 0.1.0)
@@ -405,7 +404,7 @@ DEPENDENCIES
   tokenizers (~> 0.6.3)
   turbo-rails (~> 2.0.23)
   tzinfo-data
-  web-console (~> 4.2.1)
+  web-console (~> 4.3.0)
 
 BUNDLED WITH
    2.6.8
