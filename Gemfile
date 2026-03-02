@@ -5,7 +5,7 @@ gem "rails", "~> 8.1.2"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft", "~> 1.3.1"
 # Use sqlite as the database for Active Record
-gem "sqlite3", "~> 2.9.0"
+gem "sqlite3", "~> 2.9.1"
 gem "sqlite-vec", "~> 0.1.6"
 gem "neighbor", "~> 0.6.0"
 gem "tokenizers", "~> 0.6.3"
