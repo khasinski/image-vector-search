@@ -8,7 +8,7 @@ gem "propshaft", "~> 1.3.1"
 gem "sqlite3", "~> 2.9.2"
 gem "sqlite-vec", "~> 0.1.7"
 gem "neighbor", "~> 1.0.0"
-gem "tokenizers", "~> 0.6.3"
+gem "tokenizers", "~> 0.6.4"
 
 # Model runner
 gem "onnxruntime", "~> 0.11.1"
