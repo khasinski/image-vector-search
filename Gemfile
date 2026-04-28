@@ -11,7 +11,7 @@ gem "neighbor", "~> 1.0.0"
 gem "tokenizers", "~> 0.6.4"
 
 # Model runner
-gem "onnxruntime", "~> 0.11.1"
+gem "onnxruntime", "~> 0.11.2"
 gem "numo-narray", "~> 0.9.2"
 gem "mini_magick", "~> 5.3.1"
 
