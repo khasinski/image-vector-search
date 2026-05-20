@@ -41,7 +41,7 @@ gem "bootsnap", "~> 1.24.1", require: false
 gem "kamal", "~> 2.11.0", require: false
 
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
-gem "thruster", "~> 0.1.20", require: false
+gem "thruster", "~> 0.1.21", require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
