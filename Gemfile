@@ -7,7 +7,7 @@ gem "propshaft", "~> 1.3.2"
 # Use sqlite as the database for Active Record
 gem "sqlite3", "~> 2.9.4"
 gem "sqlite-vec", "~> 0.1.9"
-gem "neighbor", "~> 1.1.1"
+gem "neighbor", "~> 1.2.0"
 gem "tokenizers", "~> 0.7.0"
 
 # Model runner
