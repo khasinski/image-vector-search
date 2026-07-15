@@ -13,7 +13,7 @@ gem "tokenizers", "~> 0.7.0"
 # Model runner
 gem "onnxruntime", "~> 0.11.4"
 gem "numo-narray", "~> 0.9.2"
-gem "mini_magick", "~> 5.3.1"
+gem "mini_magick", "~> 5.3.2"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 8.0.2"
