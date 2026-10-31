@@ -84,7 +84,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.26.1)
       msgpack (~> 1.5)
-    brakeman (8.0.6)
+    brakeman (8.1.0)
       racc
     builder (3.3.0)
     byebug (13.0.0)
@@ -381,7 +381,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (~> 1.26.1)
-  brakeman (~> 8.0.6)
+  brakeman (~> 8.1.0)
   byebug (~> 13.0.0)
   factory_bot_rails (~> 6.5.1)
   importmap-rails (~> 2.2.3)
